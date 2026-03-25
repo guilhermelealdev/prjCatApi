@@ -1,0 +1,118 @@
+/* Header.css */
+
+.hero-container {
+  height: 80vh;
+  width: 100%;
+  /* Usando a API para ter um fundo dinâmico */
+  background-image: url('https://cataas.com/cat?width=1200&height=800');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Gradiente que remete ao por do sol / relaxamento */
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 182, 193, 0.4) 0%, 
+    rgba(135, 206, 235, 0.4) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px); /* Leve desfoque no fundo para destacar o texto */
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(2px 2px 0px #fff);
+}
+
+.logo-title {
+  font-size: 5rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 900;
+  text-shadow: 4px 4px 0px #ff8fb1; /* Sombra sólida rosa */
+  letter-spacing: -3px;
+}
+
+.phrase-badge {
+  display: inline-block;
+  background-color: #ff8fb1;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 143, 177, 0.3);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  color: #2d3436;
+  line-height: 1.6;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6); /* Efeito de vidro atrás do texto */
+  padding: 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.scroll-indicator {
+  margin-top: 40px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrow {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  60% {transform: translateY(-5px);}
+}

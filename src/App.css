@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  /*background-color*/
+  --transparente: rgba(255, 255, 255, 0.312);
+  /* box-shadow: */
+  --shadow-transparente: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /*backdrop-filter webkit-''*/
+  --blur: 12.3px;
+  /*border*/
+  --borda-transparente: 1px solid rgba(255, 255, 255, 0.299);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(229, 229, 229);
+}
+
+main{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 1rem;
+}
