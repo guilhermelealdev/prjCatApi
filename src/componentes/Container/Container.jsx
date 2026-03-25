@@ -1,7 +1,7 @@
 import "./Container.css";
 
 export function Container(props) {
-  const { imagem, tagUm, tagDois, tagTres, key } = props;
+  const { imagem, tagUm, tagDois, tagTres, key, id } = props;
   return (
     <>
       <div className="card">
@@ -15,9 +15,13 @@ export function Container(props) {
             />
           </div>
           <div className="tras">
-            <ul></ul>
-            <ul></ul>
-            <ul></ul>
+            <ol>
+              {tagUm && <li><strong>{tagUm.toUpperCase()}</strong></li>}
+              {tagDois && <li><strong>{tagDois.toUpperCase()}</strong></li>}
+              {tagTres && <li><strong>{tagTres.toUpperCase()}</strong></li>}
+              <br />
+              <h3>Gatinho No. {id}</h3>
+            </ol>
           </div>
         </div>
       </div>
