@@ -9,6 +9,7 @@
 :root {
   /*background-color*/
   --transparente: rgba(255, 255, 255, 0.312);
+  --transparente-escuro:rgba(0, 0, 0, 0.673);
   /* box-shadow: */
   --shadow-transparente: 0 4px 30px rgba(0, 0, 0, 0.1);
   /*backdrop-filter webkit-''*/
@@ -18,16 +19,48 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 2rem;
   background: rgb(229, 229, 229);
 }
 
 main{
   display: grid;
   grid-template-columns: repeat(5,1fr);
+  background-color: black;
+  border: var(--borda-transparente);
+  backdrop-filter: blur(var(--blur));
   gap: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+}
+ol{
+  margin: 50%;
+}
+
+.botao {
+  grid-column: 1 / -1; 
+  display: flex;
+  justify-content: center;
+}
+button{
+  padding: 0.5rem 3rem;
+  border-radius: 25px;
+  background-color: var(--transparente);
+  box-shadow: var(--shadow-transparente);
+  border: var(--borda-transparente);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+button:hover{
+  transform: scale(1.2);
+  color: white;
+  background-color: var(--transparente-escuro);
 }
