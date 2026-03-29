@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Container } from "../Container/Container";
-import {GatoSay} from "../GatoSay/GatoSay"
 
 export function Painel() {
   const [gatos, setGatos] = useState([]);

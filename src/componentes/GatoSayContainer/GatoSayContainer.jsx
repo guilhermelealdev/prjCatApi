@@ -1,6 +1,6 @@
 export function GatoSayContainer(props) {
 
-    const {foto, setFrase} = props;
+    const {foto, setFrase, idAnterior, proximoId} = props;
 
 
   return (
@@ -15,6 +15,8 @@ export function GatoSayContainer(props) {
           id="inputFrase"
           onChange={(evento)=>setFrase(evento.target.value)}
         />
+        <button onClick={idAnterior}>antes</button>
+        <button onClick={proximoId}>depois</button>
         
         </div>
         
