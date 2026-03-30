@@ -6,7 +6,7 @@ export function Painel() {
   const [skip, setSkip] = useState(0);
 
   useEffect(() => {
-    fetch(`https://cataas.com/api/cats?limit=5&skip=${skip}`)
+    fetch(`https://cataas.com/api/cats?limit=7&skip=${skip}`)
       .then((resposta) => resposta.json())
       .then((data) => {
         if (skip === 0) {
@@ -17,7 +17,7 @@ export function Painel() {
   }, [skip]);
 
   function carregarMais() {
-    setSkip((antes) => antes + 5);
+    setSkip((antes) => antes + 7);
   }
 
   return (
@@ -40,6 +40,7 @@ export function Painel() {
         <div className="botao">
           <button onClick={carregarMais}>{"🐱Carregar Mais🐈"}</button>
         </div>
+        <br />
       </main>
     </>
   );

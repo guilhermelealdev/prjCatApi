@@ -5,9 +5,7 @@ import { GatoSayContainer } from "../GatoSayContainer/GatoSayContainer";
 export function GatoSay() {
   const [gatos, setGatos] = useState([]);
   const [foto, setFoto] = useState(null);
-  const [frase, setFrase] = useState(
-    "Oi Lucas me assume bb",
-  );
+  const [frase, setFrase] = useState(" ");
   const [skip, setSkip] = useState(0);
   const [skipGif, setSkipGif] = useState(0);
   const [ehGif, setEhGif] = useState(false);
@@ -33,6 +31,18 @@ export function GatoSay() {
 
   function virarGif() {
     setEhGif(!ehGif);
+  }
+
+  function baixarFoto(){
+    fetch(foto).then(resposta => resposta.blob()).then(blob=>{
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url;
+
+      link.download = "gato.png"
+      link.click()
+      URL.revokeObjectURL(url)
+    }).catch(erro => console.error("Ocorreu um erro para baixar a foto: ", erro))
   }
 
   useEffect(() => {
@@ -79,6 +89,7 @@ export function GatoSay() {
       proximoId={proximoId}
       idAnterior={idAnterior}
       virarGif={virarGif}
+      baixarFoto={baixarFoto}
     />
   );
 }

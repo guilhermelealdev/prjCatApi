@@ -21,8 +21,9 @@
 }
 
 body {
-  min-height: 100vh;
-  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -30,24 +31,22 @@ body {
   background: var(--vermelho);
 }
 
-h1{
+h1 {
   color: white;
-  background-color: var(--vermelho);
-  padding: 0.5rem 0.1rem;
+  background-color: black;
+  border: 2px solid white;
   border-radius: 16px;
-  border: 3px solid white;
-  margin: 0;
-  height: 100%;
+  padding: 0.5rem 13rem; 
+  width: fit-content;
+  margin: 0 auto; 
+  height: auto; 
 }
 
 main{
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  background-color: var(--transparente);
-  border: var(--borda-transparente);
+  grid-template-columns: repeat(7,1fr);
   backdrop-filter: blur(var(--blur));
-  gap: 1rem;
-  padding: 0.95rem;
+  gap: 0.5rem;
   border-radius: 16px;
 }
 
@@ -57,7 +56,7 @@ ol{
 
 section{
   display: grid;
-  grid-template-rows: 0.3fr 3fr 0.25fr;
+  grid-template-rows: 0.3fr 1fr 0.25fr;
 }
 
 .botao {
@@ -86,6 +85,7 @@ button:hover{
   transform: scale(1.2);
   color: white;
   background-color: var(--vermelho);
+  border: 0.25px solid white;
 }
 
 img{

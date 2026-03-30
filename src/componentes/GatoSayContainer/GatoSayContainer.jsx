@@ -3,7 +3,7 @@ import "./GatoSayContainer.css"
 
 export function GatoSayContainer(props) {
 
-    const {foto, setFrase, idAnterior, proximoId, virarGif} = props;
+    const {foto, setFrase, idAnterior, proximoId, virarGif, baixarFoto} = props;
     const [estado, setEstado] = useState(true)
 
     function mudarTipo(){
@@ -27,6 +27,9 @@ export function GatoSayContainer(props) {
         <button onClick={proximoId}>{">"}</button>
         <button onClick={mudarTipo}>{estado ? "GIF" :"PNG"}</button>
         </div>
+        <br />
+            <button className="baixar" onClick={baixarFoto}>BAIXAR</button>
+        
         
       </section>
     </>

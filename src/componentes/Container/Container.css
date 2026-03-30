@@ -42,6 +42,7 @@
 .tras{
     border-radius: 16px;
     background-color: var(--vermelho);
+    border: 0.5px solid white;
     color: white;
     backdrop-filter: blur(var(--blur));
     -webkit-backdrop-filter: blur(var(--blur));
@@ -51,9 +52,8 @@
 
 .cardImagem{
     margin: 0.5rem;
-    max-height: 11rem;
-    max-width: 11rem;
-    min-height: 11rem;
-    min-width: 11rem;
+    height: 11rem;
+    width: 11rem;
+
 }
 
