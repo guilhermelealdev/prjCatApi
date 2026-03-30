@@ -61,7 +61,7 @@ export function GatoSay() {
         }
       } else {
         if (skipGif >= gif.length) {
-          fetch(`https://cataas.com/api/cats?limit=1&skip=${skipGif}&tags=gif`)
+          fetch(`https://cataas.com/api/cats?limit=1&skip=${skipGif}&tags=gif&fontSize=35`)
             .then((resposta) => resposta.json())
             .then((data) => {
               if (gif.length !== 0) {
@@ -75,7 +75,7 @@ export function GatoSay() {
 
       if (frase !== "" && (gatos[skip] || gif[skipGif])) {
         setFoto(
-          `https://cataas.com/cat/${ehGif === true && gif[skipGif] ? gif[skipGif].id : gatos[skip].id}/says/${frase}?fit=contain&skip=${ehGif === true ? skipGif : skip}`,
+          `https://cataas.com/cat/${ehGif === true && gif[skipGif] ? gif[skipGif].id : gatos[skip].id}/says/${frase}?fit=contain&skip=${ehGif === true ? skipGif : skip}&fontSize=35`,
         );
       }
     }, 10);
