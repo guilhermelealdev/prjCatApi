@@ -70,3 +70,7 @@ button:hover{
   color: white;
   background-color: var(--transparente-escuro);
 }
+
+img{
+  border-radius: 16px;
+}

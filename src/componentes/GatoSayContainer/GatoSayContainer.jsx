@@ -1,6 +1,6 @@
 export function GatoSayContainer(props) {
 
-    const {foto, setFrase, idAnterior, proximoId} = props;
+    const {foto, setFrase, idAnterior, proximoId, virarGif} = props;
 
 
   return (
@@ -17,6 +17,7 @@ export function GatoSayContainer(props) {
         />
         <button onClick={idAnterior}>antes</button>
         <button onClick={proximoId}>depois</button>
+        <button onClick={virarGif}>Gif</button>
         
         </div>
         

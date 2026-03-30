@@ -9,41 +9,68 @@ export function GatoSay() {
     "Emerson e Daniel, parem de gerar exercícios com ia",
   );
   const [skip, setSkip] = useState(0);
+  const [skipGif, setSkipGif] = useState(0);
+  const [ehGif, setEhGif] = useState(false);
+  const [gif, setGif] = useState([]);
 
   function proximoId() {
-    if (skip < 1987) {
-      setSkip((anterior) => anterior + 1);
+    if (skip < 1987 || skipGif < 1987) {
+      if (ehGif === false) {
+        return setSkip((anterior) => anterior + 1);
+      }
+      return setSkipGif((anterior) => anterior + 1);
     }
   }
 
   function idAnterior() {
-    if (skip > 0) {
-      return setSkip((anterior) => anterior - 1);
+    if (skip > 0 || skipGif > 0) {
+      if (ehGif === false) {
+        return setSkip((anterior) => anterior - 1);
+      }
+      return setSkipGif((anterior) => anterior - 1);
     }
+  }
+
+  function virarGif() {
+    setEhGif(!ehGif);
   }
 
   useEffect(() => {
     const carregar = setTimeout(() => {
-      if (skip >= gatos.length) {
-        fetch(`https://cataas.com/api/cats?limit=5&skip=${skip}`)
-          .then((resposta) => resposta.json())
-          .then((data) => {
-            if (gatos.length !== 0) {
-              setGatos((anterior) => [...anterior, ...data]);
-            } else {
-              setGatos(data);
-            }
-          });
+      if (ehGif === false) {
+        if (skip >= gatos.length) {
+          fetch(`https://cataas.com/api/cats?limit=1&skip=${skip}`)
+            .then((resposta) => resposta.json())
+            .then((data) => {
+              if (gatos.length !== 0) {
+                setGatos((anterior) => [...anterior, ...data]);
+              } else {
+                setGatos(data);
+              }
+            });
+        }
+      } else {
+        if (skipGif >= gif.length) {
+          fetch(`https://cataas.com/api/cats?limit=1&skip=${skipGif}&tags=gif`)
+            .then((resposta) => resposta.json())
+            .then((data) => {
+              if (gif.length !== 0) {
+                setGif((anterior) => [...anterior, ...data]);
+              } else {
+                setGif(data);
+              }
+            });
+        }
       }
 
-      if (frase !== "" && gatos[skip]) {
+      if (frase !== "" && (gatos[skip] || gif[skipGif])) {
         setFoto(
-          `https://cataas.com/cat/${gatos[skip].id}/says/${frase}?fit=contain&skip=${skip}`,
+          `https://cataas.com/cat/${ehGif === true && gif[skipGif] ? gif[skipGif].id : gatos[skip].id}/says/${frase}?fit=contain&skip=${ehGif === true ? skipGif : skip}`,
         );
       }
-    }, 250);
+    }, 10);
     return () => clearTimeout(carregar);
-  }, [skip, setSkip, frase, gatos]);
+  }, [skip, frase, gatos, ehGif, gif, skipGif]);
 
   return (
     <GatoSayContainer
@@ -51,6 +78,7 @@ export function GatoSay() {
       foto={foto}
       proximoId={proximoId}
       idAnterior={idAnterior}
+      virarGif={virarGif}
     />
   );
 }
