@@ -1,13 +1,21 @@
+import { useState } from "react";
+import "./GatoSayContainer.css"
+
 export function GatoSayContainer(props) {
 
     const {foto, setFrase, idAnterior, proximoId, virarGif} = props;
+    const [estado, setEstado] = useState(true)
 
+    function mudarTipo(){
+      setEstado(!estado)
+      virarGif();
+    }
 
   return (
     <>
       <section>
         <h2>Faça seu próprio gato!</h2>
-        <img src={foto}  id="catSayImg"/>
+        <img src={foto}  id="gatoSayImg"/>
         <div className="inputGatoSay">
             <input
           type="text"
@@ -15,10 +23,9 @@ export function GatoSayContainer(props) {
           id="inputFrase"
           onChange={(evento)=>setFrase(evento.target.value)}
         />
-        <button onClick={idAnterior}>antes</button>
-        <button onClick={proximoId}>depois</button>
-        <button onClick={virarGif}>Gif</button>
-        
+        <button onClick={idAnterior}>{"<"}</button>
+        <button onClick={proximoId}>{">"}</button>
+        <button onClick={mudarTipo}>{estado ? "GIF" :"PNG"}</button>
         </div>
         
       </section>

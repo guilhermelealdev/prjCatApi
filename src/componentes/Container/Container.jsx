@@ -12,6 +12,7 @@ export function Container(props) {
               alt={
                 [tagUm, tagDois, tagTres].filter(Boolean).join(", ") + " cat"
               }
+              className="cardImagem"
             />
           </div>
           <div className="tras">

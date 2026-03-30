@@ -6,7 +6,7 @@ export function GatoSay() {
   const [gatos, setGatos] = useState([]);
   const [foto, setFoto] = useState(null);
   const [frase, setFrase] = useState(
-    "Emerson e Daniel, parem de gerar exercícios com ia",
+    "Oi Lucas me assume bb",
   );
   const [skip, setSkip] = useState(0);
   const [skipGif, setSkipGif] = useState(0);

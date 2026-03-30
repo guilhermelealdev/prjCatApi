@@ -6,7 +6,7 @@ export default function App(){
 
   return(
     <>
-    <h1>OnlyCats</h1>
+    <h1>ONLYCATS</h1>
     <br />
     <GatoSay/>
     <br />

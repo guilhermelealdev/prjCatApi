@@ -16,6 +16,8 @@
   --blur: 12.3px;
   /*border*/
   --borda-transparente: 1px solid rgba(255, 255, 255, 0.299);
+  --vermelho : #ee5253;
+  --transparente : rgba(255, 255, 255, 0.75)
 }
 
 body {
@@ -25,17 +27,27 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding-top: 2rem;
-  background: rgb(229, 229, 229);
+  background: var(--vermelho);
+}
+
+h1{
+  color: white;
+  background-color: var(--vermelho);
+  padding: 0.5rem 0.1rem;
+  border-radius: 16px;
+  border: 3px solid white;
+  margin: 0;
+  height: 100%;
 }
 
 main{
   display: grid;
   grid-template-columns: repeat(5,1fr);
-  background-color: black;
+  background-color: var(--transparente);
   border: var(--borda-transparente);
   backdrop-filter: blur(var(--blur));
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.95rem;
   border-radius: 16px;
 }
 
@@ -53,22 +65,27 @@ section{
   display: flex;
   justify-content: center;
 }
-button{
-  padding: 0.5rem 3rem;
-  border-radius: 25px;
-  background-color: var(--transparente);
-  box-shadow: var(--shadow-transparente);
-  border: var(--borda-transparente);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: ease-in-out 0.2s;
+  transition: background 0.3s, transform 0.1s;
 }
+
+button:active {
+  transform: scale(0.95);
+}
+
 
 button:hover{
   transform: scale(1.2);
   color: white;
-  background-color: var(--transparente-escuro);
+  background-color: var(--vermelho);
 }
 
 img{
