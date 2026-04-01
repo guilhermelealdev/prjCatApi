@@ -37,23 +37,22 @@ h2 {
   justify-content: center;
 }
 
-#inputFrase {
-  padding: 1rem 1.5rem;
+.inputInfo {
+  padding: 0.25rem 0.05rem;
   border: 2px solid black;
   color: black;
   border-radius: 8px;
   flex-grow: 1;
-  min-width: 200px;
   outline: none;
   font-weight: bolder;
   transition: 0.3s;
 }
 
-#inputFrase:hover{
+.inputInfo:hover{
     scale: 1.025;
 }
 
-#inputFrase:focus {
+.inputInfo:focus {
   background-color: var(--vermelho);
   color: white;
   border: 2px white;
@@ -65,4 +64,10 @@ h2 {
 }
 .baixar:hover{
   transform: scale(1.05);
+}
+
+#controles{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }

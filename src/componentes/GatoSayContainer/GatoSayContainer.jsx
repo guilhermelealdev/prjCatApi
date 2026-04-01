@@ -22,38 +22,40 @@ export function GatoSayContainer({
     <section>
       <h2>Faça seu próprio gato!</h2>
 
-      {foto && <img src={foto} id="gatoSayImg" alt="Gato meme" />}
+      {foto && <img src={foto} id="gatoSayImg" alt="gato" />}
 
       <div className="inputGatoSay">
         {/* FRASE */}
         <input
           type="text"
-          placeholder="Digite algo para seu gato falar!"
-          onChange={(e) => setFrase(e.target.value)}
+          placeholder="Frase"
+          onChange={(evento) => setFrase(evento.target.value)}
+          className="inputInfo"
         />
 
         {/* COR */}
         <input
           type="text"
           placeholder="Cor da fonte (ex: ff0000)"
-          onChange={(e) => setCor(e.target.value)}
+          onChange={(evento) => setCor(evento.target.value)}
+          className="inputInfo"
         />
 
         {/* TAMANHO */}
         <input
           type="number"
           placeholder="Tamanho da fonte"
-          onChange={(e) =>
-            setFontSize(Number(e.target.value) || 35)
-          }
+          onChange={(evento) => setFontSize(Number(evento.target.value) || 35)}
+          className="inputInfo"
         />
 
         {/* CONTROLES */}
+      </div>
+      <br />
+      <div id="controles">
         <button onClick={idAnterior}>{"<"}</button>
         <button onClick={proximoId}>{">"}</button>
-        <button onClick={mudarTipo}>
-          {ehGif ? "PNG" : "GIF"}
-        </button>
+        <button onClick={mudarTipo}>{ehGif ? "PNG" : "GIF"}</button>
       </div>
 
       <br />

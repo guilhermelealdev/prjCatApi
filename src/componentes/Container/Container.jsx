@@ -21,7 +21,7 @@ export function Container(props) {
               {tagDois && <li><strong>{tagDois.toUpperCase()}</strong></li>}
               {tagTres && <li><strong>{tagTres.toUpperCase()}</strong></li>}
               <br />
-              <h3>Gatinho No. {id}</h3>
+              <h3 className="numerador">Gatinho No. {id}</h3>
             </ol>
           </div>
         </div>

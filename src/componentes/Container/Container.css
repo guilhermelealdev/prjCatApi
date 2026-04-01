@@ -8,6 +8,7 @@
     cursor: pointer;
 }
 
+
 .dentro{
     position: relative;
     width: 100%;
@@ -41,7 +42,7 @@
 }
 .tras{
     border-radius: 16px;
-    background-color: var(--vermelho);
+    background-color: var(--roxo-escuro);
     border: 0.5px solid white;
     color: white;
     backdrop-filter: blur(var(--blur));
