@@ -1,37 +1,67 @@
 import { useState } from "react";
-import "./GatoSayContainer.css"
+import "./GatoSayContainer.css";
 
-export function GatoSayContainer(props) {
+export function GatoSayContainer({
+  foto,
+  setFrase,
+  idAnterior,
+  proximoId,
+  virarGif,
+  baixarFoto,
+  setFontSize,
+  setCor,
+}) {
+  const [ehGif, setEhGif] = useState(false);
 
-    const {foto, setFrase, idAnterior, proximoId, virarGif, baixarFoto} = props;
-    const [estado, setEstado] = useState(true)
-
-    function mudarTipo(){
-      setEstado(!estado)
-      virarGif();
-    }
+  function mudarTipo() {
+    setEhGif((prev) => !prev);
+    virarGif();
+  }
 
   return (
-    <>
-      <section>
-        <h2>Faça seu próprio gato!</h2>
-        <img src={foto}  id="gatoSayImg"/>
-        <div className="inputGatoSay">
-            <input
+    <section>
+      <h2>Faça seu próprio gato!</h2>
+
+      {foto && <img src={foto} id="gatoSayImg" alt="Gato meme" />}
+
+      <div className="inputGatoSay">
+        {/* FRASE */}
+        <input
           type="text"
           placeholder="Digite algo para seu gato falar!"
-          id="inputFrase"
-          onChange={(evento)=>setFrase(evento.target.value)}
+          onChange={(e) => setFrase(e.target.value)}
         />
+
+        {/* COR */}
+        <input
+          type="text"
+          placeholder="Cor da fonte (ex: ff0000)"
+          onChange={(e) => setCor(e.target.value)}
+        />
+
+        {/* TAMANHO */}
+        <input
+          type="number"
+          placeholder="Tamanho da fonte"
+          onChange={(e) =>
+            setFontSize(Number(e.target.value) || 35)
+          }
+        />
+
+        {/* CONTROLES */}
         <button onClick={idAnterior}>{"<"}</button>
         <button onClick={proximoId}>{">"}</button>
-        <button onClick={mudarTipo}>{estado ? "GIF" :"PNG"}</button>
-        </div>
-        <br />
-            <button className="baixar" onClick={baixarFoto}>BAIXAR</button>
-        
-        
-      </section>
-    </>
+        <button onClick={mudarTipo}>
+          {ehGif ? "PNG" : "GIF"}
+        </button>
+      </div>
+
+      <br />
+
+      {/* DOWNLOAD */}
+      <button className="baixar" onClick={baixarFoto}>
+        BAIXAR
+      </button>
+    </section>
   );
 }

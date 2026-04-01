@@ -91,3 +91,9 @@ button:hover{
 img{
   border-radius: 16px;
 }
+
+h3{
+  color: rgb(231, 231, 231);
+  font-family:monospace;
+  font-size: 1.25rem;
+}
