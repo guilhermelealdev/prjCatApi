@@ -14,7 +14,6 @@ export function GatoSay() {
 
   function setCorSegura(valor) {
     if (!valor) return setCorTexto("ffffff");
-
     const corLimpa = valor.replace("#", "").trim();
     setCorTexto(corLimpa);
   }
@@ -79,16 +78,18 @@ export function GatoSay() {
         }
       }
 
-      if (frase && (gatos[skip] || gif[skipGif])) {
-        const id = ehGif
-          ? gif[skipGif]?.id
-          : gatos[skip]?.id;
+      const item = ehGif ? gif[skipGif] : gatos[skip];
 
-        const url = `https://cataas.com/cat/${id}/says/${frase}?fit=contain&skip=${
-          ehGif ? skipGif : skip
-        }&fontSize=${fontSize}&fontColor=%23${corTexto}`;
+      if (item) {
+        const id = item.id;
 
-        console.log(url); // 🔎 debug
+        let url = `https://cataas.com/cat/${id}`;
+
+        if (frase) {
+          url += `/says/${frase}?fit=contain&skip=${
+            ehGif ? skipGif : skip
+          }&fontSize=${fontSize}&fontColor=%23${corTexto}`;
+        }
 
         setFoto(url);
       }
@@ -100,7 +101,7 @@ export function GatoSay() {
   return (
     <GatoSayContainer
       setFrase={setFrase}
-      setCor={setCorSegura} // ✅ usa a versão segura
+      setCor={setCorSegura}
       setFontSize={setFontSize}
       foto={foto}
       proximoId={proximoId}
@@ -110,3 +111,6 @@ export function GatoSay() {
     />
   );
 }
+
+// tirei o if para renderizar direto na linha  81 e já funcionou demorei um tempão pra achar  
+// Como a marília conseguiu colocar cores direto escrevendo continua um mistério não tem nada no código dela e nada na documentação 

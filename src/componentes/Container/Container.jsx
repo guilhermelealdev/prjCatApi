@@ -1,7 +1,7 @@
 import "./Container.css";
 
 export function Container(props) {
-  const { imagem, tagUm, tagDois, tagTres, key, id} = props;
+  const { imagem, tagUm, tagDois, tagTres, id} = props;
   return (
     <>
       <div className="card">
